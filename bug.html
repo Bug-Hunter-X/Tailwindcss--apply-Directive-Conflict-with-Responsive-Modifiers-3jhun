@@ -1,0 +1,9 @@
+This bug is related to Tailwind's `@apply` directive.  It occurs when using `@apply` with a class that has responsive modifiers (e.g., `md:p-4`) within a component that itself has responsive directives.  The issue stems from the way Tailwind processes these directives during the build process. If the order of processing is incorrect or if there are conflicts between the parent's responsive modifier and the child's applied class, the styles might not be applied correctly or might be overridden unexpectedly.
+
+```html
+<div class="md:container">
+  <button class="@apply md:p-4">
+    Click Me
+  </button>
+</div>
+```
